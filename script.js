@@ -62,6 +62,7 @@ class todo {
         this.task = task
     }
 }
+// trying to fix contributions graph
 
 const render = () => {
     projectsDiv.textContent = "";
