@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+
 </head>
+
 <body>
-    
+
+    <h1>Todoist</h1>
+
+    <button id="newprojectbutton">Create a Project</button>
+
+    <form id="form">
+        <input type="text" id="projecttitle" placeholder="Title...">
+        <input type="text" id="projectdescription" placeholder="Description...">
+        <input type="text" id="projectdue" placeholder="Due Date...">
+        <input type="text" id="projectpriority" placeholder="Importance...">
+        <input type="text" id="projectnotes" placeholder="Any notes...?">
+
+        <input id="submit" type="submit">
+    </form>
+
+    <div id="container">
+        <h2>Projects</h2>
+        <div id="projectsdiv"></div>
+    </div>
+
+
+
 </body>
+
 </html>

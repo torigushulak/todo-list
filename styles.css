@@ -1,0 +1,110 @@
+* {
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+#container{
+    margin: auto;
+    text-align: center;
+    width: 1000px;
+    height: fit-content;
+    background-color: rgb(179, 102, 47);
+    border-radius: 5px;
+    
+}
+
+ h2 {
+    background-color: rgb(179, 102, 47);
+    margin: 20px;
+}
+p {
+
+}
+
+/* #projectsdiv {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+} */
+
+#projectsdiv {
+    /* display: flex; */
+    justify-content: center;
+    margin: 20px;
+    background-color: rgb(179, 102, 47);
+}
+.projectcard {
+    display: grid;
+    
+    background-color: rgb(222, 192, 171);
+    width: 500px;
+    max-height: fit-content ;
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+.projectcard h2 {
+    background-color: rgb(222, 192, 171);
+}
+
+.projectcard p {
+    background-color: rgb(222, 192, 171);
+}
+
+
+#projecttitle {
+    margin: 20px;
+    height: 25px;
+    width: 200px;
+}
+
+/* list within project */
+#listitem {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: fit-content;
+    /* border-radius: 100px; */
+    background-color: rgb(241, 214, 117);
+    
+
+}
+#removelistitem {
+    /* transform: translate(200%, 0%); */
+}
+
+/* all inputs */
+input {
+    border-radius: 5px;
+    background-color: white;
+}
+
+#inputdiv {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+/* buttons */
+#submit {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+button {
+    background-color: rgb(139, 56, 5);
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+#newprojectbutton {
+    padding: 10px;
+}
+
+
+
+
