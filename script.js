@@ -44,7 +44,6 @@
 
 // NEW CODE//
 let projects = [];
-let todos = [];
 
 
 class project {
@@ -56,13 +55,6 @@ class project {
             this.notes = notes
     }
 }
-
-class todo {
-    constructor(task) {
-        this.task = task
-    }
-}
-// trying to fix contributions graph
 
 const render = () => {
     projectsDiv.textContent = "";
@@ -94,63 +86,79 @@ const render = () => {
 
 
 
+        // all todo elements go into this div
+        taskDiv = document.createElement('div');
+        taskDiv.id = "taskdiv";
+        projectCard.appendChild(taskDiv);
 
-        // create input to add list item
-        let getListItem = document.createElement("input");
-        getListItem.id = "getListItem";
-        getListItem.placeholder = "Add a task to your list";
+        // input and button go in this div
+        inputDiv = document.createElement('div');
+        inputDiv.id = "inputdiv";
 
-        const inputDiv = document.createElement('div');
-        inputDiv.id = "inputdiv"
-        inputDiv.appendChild(getListItem)
-        // projectCard.appendChild(inputDiv);
-        // button to submit list item
-        const liButton = document.createElement("button");
-        liButton.textContent = "Add to list";
+        // create input to add task title
+        inputTask = document.createElement("input");
+        inputTask.id = "getListItem";
+        inputTask.placeholder = "Add a task to your list";
+        inputDiv.appendChild(inputTask);
 
-        inputDiv.appendChild(liButton)
-        projectCard.appendChild(inputDiv);
-        liButton.addEventListener("click", () => {
-            projectLi = document.createElement("div");
-            projectLi.id = "listitem"
+
+        // button to submit task
+        inputButton = document.createElement("button");
+        inputButton.textContent = "Add to list";
+        inputDiv.appendChild(inputButton);
+        inputButton.addEventListener("click", () => {
+
+            todos = [];
+
+            task = document.createElement("div");
+            task.id = "task";
+            todos.push(task);
+
             // if input is empty, alert 
-            let liInput = getListItem.value;
-            if (getListItem.value == "") {
+            taskTitle = inputTask.value;
+            if (inputTask.value == "") {
                 alert("You have to type something")
+            } else {
+                
+                taskTitle = document.createTextNode(taskTitle);
+                task.appendChild(taskTitle);
+                taskDiv.appendChild(task);
+
+                // clear input after adding to list
+                inputTask.value = '';
+
+                // checkbox for each item on list
+                taskCheck = document.createElement('input');
+                taskCheck.type = "checkbox";
+                taskCheck.id = "check";
+                task.appendChild(taskCheck)
+
+                // remove button for each item on list
+                removeTask = document.createElement('button');
+                removeTask.id = 'removetask'
+                removeTask.textContent = "X";
+                task.appendChild(removeTask);
+
+                
+
+                removeTask.addEventListener('click', function () {
+                    // task.remove();
+
+                    // listItem.remove();
+                    // newCheck.remove();
+                    // removeB.remove();
+
+                    const index = todos.indexOf(task);
+                    if (index > -1) {
+                        todos.splice(index, 1);
+                    }
+                    render()
+                });
             }
-            let listItem = document.createTextNode(liInput);
-            // listItem.id = "listitem";
-            projectLi.appendChild(listItem);
-            projectCard.appendChild(projectLi);
-            // clear input after adding to list
-            getListItem.value = '';
-
-            // checkbox for each item on list
-            newCheck = document.createElement('input');
-            newCheck.type = "checkbox";
-            newCheck.id = "check";
-            projectLi.appendChild(newCheck)
-
-            // remove button for each item on list
-            removeB = document.createElement('button');
-            removeB.id = 'removelistitem'
-            removeB.textContent = "X";
-            projectLi.appendChild(removeB);
-
-            removeB.addEventListener('click', function () {
-                projectLi.remove();
-
-                // listItem.remove();
-                // newCheck.remove();
-                // removeB.remove();
-
-                // const index = projectLi.indexOf(listItem);
-                // if (index > -1) {
-                //     projectLi.splice(index, 1);
-                // }
-                // render()
-            });
         });
+
+
+        taskDiv.appendChild(inputDiv);
 
 
 
@@ -190,69 +198,6 @@ const render = () => {
     })
 }
 
-// const todoMaker = () => {
-//     todos.forEach(todo => {
-//         getListItem = document.createElement("input");
-//         getListItem.id = "getListItem";
-//         getListItem.placeholder = "Add a task to your list";
-
-//         const inputDiv = document.createElement('div');
-//         inputDiv.id = "inputdiv"
-//         inputDiv.appendChild(getListItem)
-//         // projectCard.appendChild(inputDiv);
-//         // button to submit list item
-//         const liButton = document.createElement("button");
-//         liButton.textContent = "Add to list";
-
-//         inputDiv.appendChild(liButton)
-//         projectCard.appendChild(inputDiv);
-//         liButton.addEventListener("click", () => {
-//             projectLi = document.createElement("div");
-//             projectLi.id = "listitem"
-//             // if input is empty, alert 
-//             let liInput = getListItem.value;
-//             if (getListItem.value == "") {
-//                 alert("You have to type something")
-//             }
-//             let listItem = document.createTextNode(liInput);
-//             // listItem.id = "listitem";
-//             projectLi.appendChild(listItem);
-//             projectCard.appendChild(projectLi);
-//             // clear input after adding to list
-//             getListItem.value = '';
-
-//             // checkbox for each item on list
-//             newCheck = document.createElement('input');
-//             newCheck.type = "checkbox";
-//             newCheck.id = "check";
-//             projectLi.appendChild(newCheck)
-
-//             // remove button for each item on list
-//             removeB = document.createElement('button');
-//             removeB.id = 'removelistitem'
-//             removeB.textContent = "X";
-//             projectLi.appendChild(removeB);
-
-//             removeB.addEventListener('click', function () {
-//                 projectLi.remove(-1);
-
-//                 // listItem.remove();
-//                 // newCheck.remove();
-//                 // removeB.remove();
-
-//                 // const index = projectLi.indexOf(listItem);
-//                 // if (index > -1) {
-//                 //     projectLi.splice(index, 1);
-//                 // }
-//                 // render()
-//             });
-
-//         })
-//     })
-// }
-
-
-
 
 
 let projectsDiv = document.getElementById('projectsdiv');
@@ -272,8 +217,6 @@ form.onsubmit = function () {
 
     newProject = new project(title, description, dueDate, priority, notes);
     projects.push(newProject);
-
-    // title.value = '';
 
     // reset dom
     render()
