@@ -4,9 +4,10 @@
 }
 
 #container{
-    margin: auto;
+    display: grid;
+    justify-content: center;
+    margin: 20px;
     text-align: center;
-    width: 1000px;
     height: fit-content;
     background-color: rgb(179, 102, 47);
     border-radius: 5px;
@@ -14,11 +15,8 @@
 }
 
  h2 {
-    background-color: rgb(179, 102, 47);
-    margin: 20px;
-}
-p {
-
+    background-color: rgba(179, 102, 47, 0);
+    margin: 10px;
 }
 
 /* #projectsdiv {
@@ -35,21 +33,36 @@ p {
 }
 .projectcard {
     display: grid;
-    
     background-color: rgb(222, 192, 171);
     width: 500px;
     max-height: fit-content ;
     border-radius: 10px;
     margin: 10px;
-
+}
+h4 {
+    background-color: rgba(255, 240, 240, 0);
 }
 
 .projectcard h2 {
-    background-color: rgb(222, 192, 171);
+    background-color: rgba(222, 192, 171, 0);
 }
 
 .projectcard p {
-    background-color: rgb(222, 192, 171);
+    background-color: rgba(222, 192, 171, 0);
+}
+
+#titlecheckdiv {
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+#titlecheckdiv h2 {
+    background-color: rgba(240, 248, 255, 0);
 }
 
 
@@ -60,20 +73,22 @@ p {
 }
 
 /* list within project */
-#task {
+.taskcontainer {
     display: flex;
     justify-content: center;
+    justify-self: center;
     align-items: center;
+    text-align: center;
     height: 30px;
     width: fit-content;
     /* border-radius: 100px; */
-    background-color: rgb(241, 214, 117);
-    
+    background-color: rgba(241, 214, 117, 0);
+}
+#taskdate {
+    margin: 5px;
+    background-color: rgba(240, 248, 255, 0);
+}
 
-}
-#removelistitem {
-    /* transform: translate(200%, 0%); */
-}
 
 /* all inputs */
 input {
@@ -85,6 +100,10 @@ input {
     display: flex;
     justify-content: center;
     height: fit-content;
+    background-color: rgb(222, 192, 171);
+}
+#getlistitem {
+    background-color: rgba(240, 248, 255, 0);
 }
 
 /* buttons */
